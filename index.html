@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio | Video & Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 10px;
+        }
+        
+        /* Project card hover effect */
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.2), 0 10px 10px -5px rgba(79, 70, 229, 0.1);
+        }
+        
+        /* Typewriter effect */
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: 4px solid #8b5cf6;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #8b5cf6; }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-900/80 backdrop-blur-sm border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold gradient-text">CREATIVE</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium hover:text-indigo-400 transition">Home</a>
+                        <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium hover:text-indigo-400 transition">About</a>
+                        <a href="#skills" class="px-3 py-2 rounded-md text-sm font-medium hover:text-indigo-400 transition">Skills</a>
+                        <a href="#projects" class="px-3 py-2 rounded-md text-sm font-medium hover:text-indigo-400 transition">Projects</a>
+                        <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium hover:text-indigo-400 transition">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800/95">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-400 transition">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-400 transition">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-400 transition">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-400 transition">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+                <div class="typewriter mb-6">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">Yasir</span></h1>
+                </div>
+                <p class="text-lg md:text-xl text-slate-300 mb-8">Visual Storyteller & Digital Artist</p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-medium hover:from-indigo-700 hover:to-purple-700 transition transform hover:scale-105">View My Work</a>
+                    <a href="#contact" class="px-8 py-3 border border-indigo-600 rounded-full font-medium hover:bg-indigo-600/20 transition transform hover:scale-105">Contact Me</a>
+                </div>
+                <div class="mt-12 flex justify-center md:justify-start space-x-6">
+                    <a href="#" class="text-slate-300 hover:text-indigo-400 transition"><i class="fab fa-behance text-2xl"></i></a>
+                    <a href="#" class="text-slate-300 hover:text-indigo-400 transition"><i class="fab fa-dribbble text-2xl"></i></a>
+                    <a href="#" class="text-slate-300 hover:text-indigo-400 transition"><i class="fab fa-instagram text-2xl"></i></a>
+                    <a href="#" class="text-slate-300 hover:text-indigo-400 transition"><i class="fab fa-vimeo-v text-2xl"></i></a>
+                </div>
+            </div>
+            <div class="hidden md:block relative">
+                <div class="absolute -top-10 -left-10 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-indigo-600 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                <div class="absolute top-20 -right-20 w-64 h-64 bg-pink-600 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+                <div class="relative float-animation">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Creative Workspace" class="rounded-2xl shadow-2xl border-4 border-slate-700/50">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center gradient-text">About Me</h2>
+            <p class="text-center text-slate-300 mb-12 max-w-3xl mx-auto">Crafting visual experiences that tell stories and evoke emotions</p>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://i.postimg.cc/FHPWJ6Sj/Snapchat-595579470.jpg" alt="Profile" class="rounded-2xl shadow-xl border-4 border-slate-700/50 w-full">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">I transform ideas into visual masterpieces</h3>
+                    <p class="text-slate-300 mb-6">With a passion for visual storytelling and a keen eye for detail, I specialize in creating compelling video content and striking graphic designs that captivate audiences.</p>
+                    <p class="text-slate-300 mb-6">My journey in the creative field began 3 years ago when I discovered my love for digital art. Since then, I've been honing my skills through various projects, constantly pushing the boundaries of my creativity.</p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="mr-3 text-indigo-400"><i class="fas fa-palette text-2xl"></i></div>
+                            <div>
+                                <h4 class="font-bold">Graphic Design</h4>
+                                <p class="text-sm text-slate-400">Logos, Branding, Posters</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-indigo-400"><i class="fas fa-video text-2xl"></i></div>
+                            <div>
+                                <h4 class="font-bold">Video Editing</h4>
+                                <p class="text-sm text-slate-400">Commercials, Short Films</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-indigo-400"><i class="fas fa-magic text-2xl"></i></div>
+                            <div>
+                                <h4 class="font-bold">Motion Graphics</h4>
+                                <p class="text-sm text-slate-400">Animations, Effects</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-indigo-400"><i class="fas fa-camera text-2xl"></i></div>
+                            <div>
+                                <h4 class="font-bold">Photography</h4>
+                                <p class="text-sm text-slate-400">Portraits, Events</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center gradient-text">My Skills</h2>
+            <p class="text-center text-slate-300 mb-12 max-w-3xl mx-auto">The tools and techniques I use to bring creative visions to life</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Video Editing Skills -->
+                <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50 hover:border-indigo-500/50 transition">
+                    <div class="text-indigo-400 mb-4"><i class="fas fa-film text-4xl"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Video Editing</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Adobe Premiere Pro
+                            <div class="ml-auto text-sm text-slate-400">90%</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            DaVinci Resolve
+                            <div class="ml-auto text-sm text-slate-400">85%</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Final Cut Pro
+                            <div class="ml-auto text-sm text-slate-400">75%</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Color Grading
+                            <div class="ml-auto text-sm text-slate-400">80%</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Graphic Design Skills -->
+                <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50 hover:border-indigo-500/50 transition">
+                    <div class="text-indigo-400 mb-4"><i class="fas fa-paint-brush text-4xl"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Graphic Design</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Adobe Photoshop
+                            <div class="ml-auto text-sm text-slate-400">95%</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Adobe Illustrator
+                            <div class="ml-auto text-sm text-slate-400">90%</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Adobe InDesign
+                            <div class="ml-auto text-sm text-slate-400">80%</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Figma
+                            <div class="ml-auto text-sm text-slate-400">85%</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Motion Graphics Skills -->
+                <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50 hover:border-indigo-500/50 transition">
+                    <div class="text-indigo-400 mb-4"><i class="fas fa-cubes text-4xl"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Motion Graphics</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Adobe After Effects
+                            <div class="ml-auto text-sm text-slate-400">88%</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Cinema 4D
+                            <div class="ml-auto text-sm text-slate-400">70%</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Blender
+                            <div class="ml-auto text-sm text-slate-400">65%</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>
+                            Character Animation
+                            <div class="ml-auto text-sm text-slate-400">75%</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center gradient-text">My Projects</h2>
+            <p class="text-center text-slate-300 mb-12 max-w-3xl mx-auto">A selection of my recent creative work</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700/50">
+                    <div class="relative overflow-hidden h-60">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Project 1" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-xl font-bold">Brand Identity Design</h3>
+                                <p class="text-slate-300 text-sm">Logo, Business Cards, Stationery</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-300 mb-4">Complete brand identity package for a startup coffee shop, including logo design, color palette, typography, and stationery.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Illustrator</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Photoshop</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Branding</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700/50">
+                    <div class="relative overflow-hidden h-60">
+                        <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Project 2" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-xl font-bold">Product Commercial</h3>
+                                <p class="text-slate-300 text-sm">Video Editing, Motion Graphics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-300 mb-4">30-second product commercial for a tech startup, featuring dynamic editing, motion graphics, and sound design.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Premiere Pro</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">After Effects</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Color Grading</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700/50">
+                    <div class="relative overflow-hidden h-60">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Project 3" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-xl font-bold">Social Media Campaign</h3>
+                                <p class="text-slate-300 text-sm">Graphics, Animations, Videos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-300 mb-4">Complete social media package including static posts, animated stories, and short-form video content for a fashion brand.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Photoshop</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">After Effects</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Instagram</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700/50">
+                    <div class="relative overflow-hidden h-60">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 4" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-xl font-bold">Corporate Video</h3>
+                                <p class="text-slate-300 text-sm">Editing, Sound Design, Subtitles</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-300 mb-4">5-minute corporate video for a financial services company, featuring interview footage, b-roll, and animated infographics.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Premiere Pro</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Audition</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Subtitling</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700/50">
+                    <div class="relative overflow-hidden h-60">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 5" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-xl font-bold">Event Promo Video</h3>
+                                <p class="text-slate-300 text-sm">Editing, Motion Graphics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-300 mb-4">Promotional video for a music festival, featuring fast-paced editing, dynamic transitions, and kinetic typography.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Premiere Pro</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">After Effects</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Motion Graphics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700/50">
+                    <div class="relative overflow-hidden h-60">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 6" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-xl font-bold">Book Cover Design</h3>
+                                <p class="text-slate-300 text-sm">Illustration, Typography</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-300 mb-4">Series of book covers for a fantasy novel trilogy, featuring custom illustrations and hand-lettered typography.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Photoshop</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Illustrator</span>
+                            <span class="px-3 py-1 bg-slate-700/50 rounded-full text-xs">Typography</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-medium hover:from-indigo-700 hover:to-purple-700 transition transform hover:scale-105">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center gradient-text">Client Testimonials</h2>
+            <p class="text-center text-slate-300 mb-12 max-w-3xl mx-auto">What people say about working with me</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Petal</h4>
+                            <p class="text-sm text-slate-400">Marketing Director</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 italic">"Working with Yasir was an absolute pleasure. They took our vague ideas and transformed them into a stunning visual identity that perfectly represents our brand."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Johnson Hery</h4>
+                            <p class="text-sm text-slate-400">Startup Founder</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 italic">"The video Yasir created for our product launch exceeded all expectations. Their attention to detail and creative vision helped us stand out in a crowded market."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas  fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Elli Smit</h4>
+                            <p class="text-sm text-slate-400">Creative Director</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 italic">"Yasir's ability to understand our brand's aesthetic and translate it into beautiful designs is remarkable. They're now our go-to designer for all major projects."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center gradient-text">Get In Touch</h2>
+            <p class="text-center text-slate-30 class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50 h-full">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-indigo-400 mr-4 mt-1"><i class="fas fa-envelope text-xl"></i></div>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <p class="text-slate-300">y681813@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-indigo-400 mr-4 mt-1"><i class="fas fa-phone-alt text-xl"></i></div>
+                                <div>
+                                    <h4 class="font-medium">Phone</h4>
+                                    <p class="text-slate-300">+92 309 1046930 </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-indigo-400 mr-4 mt-1"><i class="fas fa-map-marker-alt text-xl"></i></div>
+                                <div>
+                                    <h4 class="font-medium">Location</h4>
+                                    <p class="text-slate-300">49 tail Sargodha,Pakistan</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mt-10 mb-6">Follow Me</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-indigo-600 hover:text-white transition">
+                                <i class="fab fa-behance"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-indigo-600 hover:text-white transition">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-indigo-600 hover:text-white transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-indigo-600 hover:text-white transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-indigo-600 hover:text-white transition">
+                                <i class="fab fa-vimeo-v"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-8 p-4 bg-slate-800 rounded-lg">
+                            <h4 class="font-medium mb-2">Availability</h4>
+                            <p class="text-slate-300 text-sm">Currently accepting new projects for <span class="text-indigo-400">September 2025</span> onwards. Let's discuss your ideas!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold gradient-text">CREATIVE</span>
+                    <p class="text-slate-400 mt-2">Visual Storytelling Through Design & Motion</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#home" class="text-slate-300 hover:text-indigo-400 transition">Home</a>
+                    <a href="#about" class="text-slate-300 hover:text-indigo-400 transition">About</a>
+                    <a href="#skills" class="text-slate-300 hover:text-indigo-400 transition">Skills</a>
+                    <a href="#projects" class="text-slate-300 hover:text-indigo-400 transition">Projects</a>
+                    <a href="#contact" class="text-slate-300 hover:text-indigo-400 transition">Contact</a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-500 text-sm mb-4 md:mb-0">© 2025 Creative Portfolio. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-500 hover:text-indigo-400 transition text-sm">Privacy Policy</a>
+                    <a href="#" class="text-slate-500 hover:text-indigo-400 transition text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-indigo-700 transition opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission (prevent default for demo)
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message!.');
+                form.reset();
+            });
+        }
+    </script>
+</body>
+</html>
